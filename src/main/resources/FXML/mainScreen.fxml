@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="279.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pl.potoczak.ControllerApp">
+    <MenuBar prefHeight="18.0" prefWidth="597.0">
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" text="Close"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+            <MenuItem mnemonicParsing="false" text="Delete"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+            <MenuItem mnemonicParsing="false" text="About"/>
+        </Menu>
+    </MenuBar>
+    <TableView layoutY="24.0" prefHeight="256.0" prefWidth="597.0">
+      <columns>
+          <TableColumn prefWidth="106.0" text="Title"/>
+          <TableColumn prefWidth="281.0" text="Progress"/>
+          <TableColumn minWidth="0.0" prefWidth="121.0" text="Time"/>
+          <TableColumn prefWidth="88.0" text="Action"/>
+      </columns>
+    </TableView>
+</Pane>
