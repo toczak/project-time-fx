@@ -1,0 +1,4 @@
+.table-view:focused{
+    -fx-background-color: -fx-table-cell-border-color, -fx-background;
+    -fx-background-insets: 0,0 0 1 0;
+}
