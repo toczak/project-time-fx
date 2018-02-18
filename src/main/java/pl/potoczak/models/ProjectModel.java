@@ -34,10 +34,12 @@ public class ProjectModel {
     }*/
 
     private final SimpleStringProperty title;
+    private final SimpleStringProperty description;
     private final SimpleStringProperty time;
 
-    public ProjectModel(String title, String time) {
+    public ProjectModel(String title, String time, String description) {
         this.title = new SimpleStringProperty(title);
+        this.description = new SimpleStringProperty(description);
         this.time = new SimpleStringProperty(time);
     }
 
@@ -47,6 +49,14 @@ public class ProjectModel {
 
     public String getTime(){
         return time.get();
+    }
+
+    public String getDescription() {
+        return description.get();
+    }
+
+    public void setDescription(String value) {
+        description.set(value);
     }
 
     public void setTitle(String value){

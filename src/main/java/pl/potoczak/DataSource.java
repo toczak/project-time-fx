@@ -17,9 +17,9 @@ public class DataSource {
 
     public ObservableList<ProjectModel> getTableData(){
         ObservableList<ProjectModel> data = FXCollections.observableArrayList();
-        data.add(new ProjectModel("x","t"));
-        data.add(new ProjectModel("xdxzc","tre"));
-        data.add(new ProjectModel("xddddddddddddxzc","tredddddddddddd"));
+        data.add(new ProjectModel("x","0","e"));
+        data.add(new ProjectModel("xdxzc","t66e", "he"));
+        data.add(new ProjectModel("xddddddddddddxzc","tre55dd","cerww"));
         return data;
     }
 

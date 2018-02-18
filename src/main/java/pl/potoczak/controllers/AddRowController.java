@@ -20,7 +20,7 @@ public class AddRowController {
     }
 
     @FXML protected void addRow(ActionEvent event){
-        tableData.add(new ProjectModel(titleText.getText(), descriptionText.getText()));
+        tableData.add(new ProjectModel(titleText.getText(),"0", descriptionText.getText()));
         Stage stage = (Stage) addButton.getScene().getWindow();
         stage.close();
 
