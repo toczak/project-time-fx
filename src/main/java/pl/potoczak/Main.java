@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import pl.potoczak.controllers.MainController;
 
 import static javafx.application.Application.launch;
 
@@ -24,5 +25,9 @@ public class Main extends Application {
         stage.setTitle("Project time");
         stage.initStyle(StageStyle.DECORATED);
         stage.show();
+
+        MainController mainController = loader.getController();
+
+        stage.setOnCloseRequest(event -> mainController.closeApp());
     }
 }

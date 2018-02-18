@@ -1,5 +1,7 @@
 package pl.potoczak.controllers;
 
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,19 +37,19 @@ public class MainController {
     @FXML
     private TableColumn<ProjectModel, String> description;
 
-
-    DataSource dataSource = new DataSource();
+    //DataSource dataSource = new DataSource();
 
     public void initialize() {
-        System.out.println("Start");
-        init(dataSource.getTableData());
-    }
-
-    private void init(ObservableList<ProjectModel> list) {
         title.setCellValueFactory(new PropertyValueFactory<>("title"));
         time.setCellValueFactory(new PropertyValueFactory<>("time"));
         description.setCellValueFactory(new PropertyValueFactory<>("description"));
-        table.setItems(list);
+        table.setItems(getTableData());
+
+        try {
+            autoLoad();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -68,7 +70,6 @@ public class MainController {
 
     @FXML
     private void importFile() throws IOException {
-        System.out.println("Klikam import");
         ObservableList<ProjectModel> tableData = table.getItems();
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open file...");
@@ -124,6 +125,19 @@ public class MainController {
         }
     }
 
+    private void autoLoad() throws IOException {
+        ObservableList<ProjectModel> tableData = table.getItems();
+        tableData.clear();
+        String limiter = ";";
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("Projects.csv"));
+        String text;
+        while ((text = bufferedReader.readLine()) != null) {
+            String[] fields = text.split(limiter, -1);
+            ProjectModel projectModel = new ProjectModel(fields[0].toString(), fields[1].toString(), fields[2].toString());
+            tableData.add(projectModel);
+        }
+    }
+
     private void autoSave() throws IOException {
         ObservableList<ProjectModel> tableData = table.getItems();
         FileWriter fileWriter;
@@ -133,5 +147,20 @@ public class MainController {
             fileWriter.write(text);
         }
         fileWriter.close();
+    }
+
+    @FXML
+    public void closeApp(){
+        try {
+            autoSave();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Platform.exit();
+    }
+
+    private ObservableList<ProjectModel> getTableData(){
+        ObservableList<ProjectModel> data = FXCollections.observableArrayList();
+        return data;
     }
 }

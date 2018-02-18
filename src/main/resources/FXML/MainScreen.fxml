@@ -38,7 +38,7 @@
            <Menu mnemonicParsing="false" text="File">
             <MenuItem mnemonicParsing="false" onAction="#importFile" text="Import from file" />
             <MenuItem mnemonicParsing="false" onAction="#exportFile" text="Export to file" />
-               <MenuItem mnemonicParsing="false" text="Exit" />
+               <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Exit" />
            </Menu>
            <Menu mnemonicParsing="false" text="Edit">
                <MenuItem mnemonicParsing="false" onAction="#editAdd" text="Add" />
